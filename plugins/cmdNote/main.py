@@ -113,11 +113,11 @@ class NoteCommand(Plugin):
         if not (re.search(pattern, message) or message == "n" or message.startswith("note")):
             return False
         if message.startswith("note"):
-            note_list = message[4:].strip().split(maxsplit=3)
+            note_list = message[4:].strip().split(maxsplit=2)
         elif message.startswith("n "):
-            note_list = message[2:].strip().split(maxsplit=3)
+            note_list = message[2:].strip().split(maxsplit=2)
         else:
-            note_list = message[1:].strip().split(maxsplit=3)
+            note_list = message[1:].strip().split(maxsplit=2)
         note_list = [n for n in note_list if n]
         return note_list
 
