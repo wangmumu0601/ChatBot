@@ -1,5 +1,7 @@
 
 
+import random
+from typing import Union
 import Events
 from Models.Plugins import *
 from ..gocqOnQQ.entities.components import At, Plain
@@ -68,13 +70,19 @@ class HistoryCommand(Plugin):
                 reply.append(f"assistant:\n{_session['content']}")
 
         is_plus = session.params_name if session.params_name else "default"
-        reply[1] = "user:\n" + config.command_reset_name_message + \
+        reply[1] = "user:\n" + self.get_config_command_rest_name_message(config.command_reset_name_message) + \
             "{}".format(session.role_name) + \
             f"\n当前配置: {is_plus}" + \
             f"\n是否启用GPT4: {'是' if session.is_plus else '否'}"
 
         logging.debug(f"微信[{sender}]查看历史记录: {reply}")
         wcf.send_text("\n\n".join(reply), sender)
+
+    def get_config_command_rest_name_message(self, command_reset_name_message: Union[str, list[str]]):
+        result = command_reset_name_message
+        if isinstance(result, list):
+            result = random.choice(result)
+        return result
 
     def _qq_cmd_history(self, session_name, sender_id, group_id=None):
         openai = self.emit(Events.GetOpenAi__)
@@ -108,7 +116,7 @@ class HistoryCommand(Plugin):
             message_list.append(_session["content"])
 
         is_plus = session.params_name if session.params_name else "default"
-        message_list[0] = "user:\n" + config.command_reset_name_message + \
+        message_list[0] = "user:\n" + self.get_config_command_rest_name_message(config.command_reset_name_message) + \
             "{}".format(session.role_name) + \
             f"\n当前配置: {is_plus}" + \
             f"\n是否启用GPT4: {'是' if session.is_plus else '否'}"

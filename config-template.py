@@ -136,7 +136,7 @@ completion_api_params = {
         "is_plus": False,
         "describe": "3.5默认配置",     # 描述
         "max_tokens": "16,385",       # 最大字符数
-        "traning_data": "2021年9月",  # 训练数据截止日期
+        "training_data": "2021年9月",  # 训练数据截止日期
         "model_multi": "0.50",        # 模型倍率
         "group_multi": "5.00",        # 分组倍率
         # 除`params`外的其它参数可省略, `is_plus`默认为False
@@ -154,7 +154,7 @@ completion_api_params = {
         "is_plus": True,
         "describe": "4.0默认配置",
         "max_tokens": "128,000",
-        "traning_data": "2023年4月",
+        "training_data": "2023年4月",
         "model_multi": "5.00",
         "group_multi": "5.00",
         "params": {
@@ -169,7 +169,7 @@ completion_api_params = {
     #     "is_plus": True,
     #     "describe": "4.0可看图片, 暂未兼容",  # TODO qq消息链与微信不同, 没想好怎么做
     #     "max_tokens": "128,000",
-    #     "traning_data": "2023年4月",
+    #     "training_data": "2023年4月",
     #     "model_multi": "5.00",
     #     "group_multi": "5.00",
     #     "params": {
@@ -184,7 +184,7 @@ completion_api_params = {
         "is_plus": True,
         "describe": "4.0稳定版",
         "max_tokens": "8,192",
-        "traning_data": "2021年9月",
+        "training_data": "2021年9月",
         "model_multi": "15.00",
         "group_multi": "5.00",
         "params": {
@@ -199,7 +199,7 @@ completion_api_params = {
         "is_plus": False,
         "describe": "3.5稳定版",
         "max_tokens": "4,096",
-        "traning_data": "2021年9月",
+        "training_data": "2021年9月",
         "model_multi": "0.75",
         "group_multi": "5.00",
         "params": {
@@ -214,7 +214,7 @@ completion_api_params = {
     #     "is_plus": False,
     #     "describe": "3.5大文本处理, 暂未兼容",  # TODO 可能可以读取文件?
     #     "max_tokens": "16,385",
-    #     "traning_data": "2029年9月",
+    #     "training_data": "2029年9月",
     #     "model_multi": "1.50",
     #     "group_multi": "5.00",
     #     "params": {

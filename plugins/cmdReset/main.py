@@ -1,4 +1,5 @@
 
+import random
 import re
 
 import Events
@@ -133,6 +134,8 @@ class ResetCommand(Plugin):
             open_ai.sessions_dict[session_name] = Session(
                 session_name, "default", config.default_prompt["default"], config.session_expire_time)
             reply = config.command_reset_message
+            if isinstance(reply, list):
+                reply = random.choice(reply)
 
             if params and params[0].startswith("-"):
                 reply += try_set_params(
@@ -150,7 +153,7 @@ class ResetCommand(Plugin):
                     reply += f"[{index+1}] -{key}:\n"
                     reply += f"  描述: {value['description']}\n" if "description" in value else ""
                     reply += f"  最大token: {value['max_tokens']}\n" if "max_tokens" in value else ""
-                    reply += f"  训练数据截止: {value['traning_data']}\n" if "traning_data" in value else ""
+                    reply += f"  训练数据截止: {value['training_data']}\n" if "training_data" in value else ""
                     reply += f"  模型倍率: {value['model_multi']}\n" if "model_multi" in value else ""
                     reply += f"  分组倍率: {value['group_multi']}\n" if "group_multi" in value else ""
                     reply += "\n"
