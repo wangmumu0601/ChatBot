@@ -1,6 +1,7 @@
 
 import random
 import re
+from typing import Union
 
 import Events
 from Models.Plugins import *
@@ -82,7 +83,8 @@ class ResetCommand(Plugin):
         session_name = f"group_{kwargs['group_id']}"
         reply = self.set_reset(
             sender_id, session_name, params, kwargs["is_admin"])
-        self.emit(Events.GetCQHTTP__).sendGroupMessage(kwargs["group_id"], reply)
+        self.emit(Events.GetCQHTTP__).sendGroupMessage(
+            kwargs["group_id"], reply)
 
     @on(GetWXCommand)
     def cmd_reset(self, event: EventContext, **kwargs):
@@ -103,6 +105,12 @@ class ResetCommand(Plugin):
         reply = self.set_reset(
             sender, session_name, params, kwargs["is_admin"])
         self.emit(Events.GetWCF__).send_text(reply, sender)
+
+    def get_config_command_rest_name_message(self, command_reset_name_message: Union[str, list[str]]):
+        result = command_reset_name_message
+        if isinstance(result, list):
+            result = random.choice(result)
+        return result
 
     def set_reset(self, sender_id, session_name, params, is_admin) -> str:
         """统一接口"""
@@ -200,7 +208,8 @@ class ResetCommand(Plugin):
 
             open_ai.sessions_dict[session_name] = Session(
                 session_name, params[0], prompts[params[0]], config.session_expire_time)
-            reply = config.command_reset_name_message + "{}".format(params[0])
+            reply = self.get_config_command_rest_name_message(
+                config.command_reset_name_message) + f"\n{params[0]}"
             reply += f"\n当前预设长度: {len(prompts[params[0]])}字符, 请注意api key消耗"
 
             if len(params) > 1 and params[1].startswith("-"):
