@@ -585,10 +585,11 @@ def web_logs():
             else:
                 tmp += "\n"
             tmp_rep += tmp
+            tmp_rep += f"用户: {log['describe']}"
             if len(log['password']) > 4:  # 排除null的情况
-                tmp_rep += f"密码: {log['password'][:2] + '*' * (len(log['password']) - 3) + log['password'][-1]}\n"
+                tmp_rep += f" ({log['password'][:2] + '*' * (len(log['password']) - 3) + log['password'][-1]})\n"
             else:
-                tmp_rep += f"密码: {log['password']}\n"
+                tmp_rep += f" ({log['password']})\n"
             tmp_rep += f"登入时间: [{log['loginTime']}]"
             if not log['logoutTime']:
                 tmp = "访客进入\n"
