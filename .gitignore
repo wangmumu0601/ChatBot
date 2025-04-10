@@ -176,3 +176,4 @@ session.token
 result.json
 # result.json is used in viztracer
 .history/
+.VSCodeCounter/
