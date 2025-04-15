@@ -651,7 +651,7 @@ def check_internet_status(cqhttp: CQHTTP_Protocol, my_qq_number: int) -> None:
                 from Events import GetWCF__, GetConfig__
                 my_wx_id = Plugin.emit(GetConfig__).my_wx_id
                 wcf = Plugin.emit(GetWCF__)
-                for _ in range(5):
+                if wcf:
                     wcf.send_text("[bot]err: 机革未自动连接到互联网！！！", my_wx_id)
             except Exception as e:
                 import logging
