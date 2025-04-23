@@ -2,7 +2,9 @@
 
 本项目使用了 [go-cqhttp](https://github.com/Mrs4s/go-cqhttp) 作为连接 QQ 的方式
 
-本项目使用了 [WeChatFerry](https://github.com/lich0821/WeChatFerry) 作为连接微信的方式(挂载稍有难度, 故默认关闭微信连接)
+~~本项目使用了 [WeChatFerry](https://github.com/lich0821/WeChatFerry) 作为连接微信的方式(挂载稍有难度, 故默认关闭微信连接)~~
+
+微信连接彻底寄了，为 wcf 默哀 :-(
 
 # 挂载项目
 
