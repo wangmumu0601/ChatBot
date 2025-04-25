@@ -108,6 +108,10 @@
 
 基本写完了, 没啥大 bug, 小 bug 知道的暂时都解决了, 欢迎提交 issue(虽然没啥可能)
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=wangmumu0601/ChatBot&type=Date)](https://www.star-history.com/#wangmumu0601/ChatBot&Date)
+
 # 插件编写规范
 
 # 1. 主线程流程
@@ -123,12 +127,6 @@
 由于主线程的插件特性, 可直接删去`gocqOnQQ`文件夹而不报错, 但实际因为内部耦合度大, 并不建议这么做
 
 实际上只有双下划线开头的不可删除, 其余`./plugins`下的文件并非必须项
-
-[当前已有插件的优先级](#当前已有插件的优先级:)
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=wangmumu0601/ChatBot&type=Date)](https://www.star-history.com/#wangmumu0601/ChatBot&Date)
 
 # 2. 插件基类编写规范(`Plugin`)
 
