@@ -126,6 +126,10 @@
 
 [当前已有插件的优先级](#当前已有插件的优先级:)
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=wangmumu0601/ChatBot&type=Date)](https://www.star-history.com/#wangmumu0601/ChatBot&Date)
+
 # 2. 插件基类编写规范(`Plugin`)
 
 插件目录结构应如下
